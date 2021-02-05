@@ -4,7 +4,7 @@
   "description": "- 현 시점의 HTML + Javascript 개발 실력 검증을 위해 진행 - 해당 과제를 통해 수준을 가늠해 보기 위함임",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --config webpack.config.js"
+    "dev": "webpack --config webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "file-loader": "^6.2.0",
     "mini-css-extract-plugin": "^1.3.5",
     "postcss-loader": "^5.0.0",
+    "sass": "^1.32.6",
     "sass-loader": "^10.1.1",
     "webpack": "^5.20.2",
     "webpack-cli": "^4.5.0",

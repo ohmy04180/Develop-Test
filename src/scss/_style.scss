@@ -1,3 +1,94 @@
-body{
-  background-color: green;
+body {
+  width: 1180px;
+  margin: 50px auto;
+}
+
+// -------------------------
+// Theme - table
+// -------------------------
+.table {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.table__title {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: #666;
+}
+
+.table table {
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+.table th,
+.table td {
+  padding: 4px 0;
+  vertical-align: middle;
+  word-break: break-all;
+}
+
+.table th {
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: 1px solid #ccc;
+}
+
+.table td {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+// -------------------------
+// Theme - table
+// -------------------------
+.pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.pagination__list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__text {
+  display: block;
+  padding: 0 4px;
+}
+
+.pagination__link {
+  text-decoration: none;
+}
+
+.pagination__button {
+  border: none;
+}
+
+.pagination__button,
+.pagination__link {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 16px;
+  background-color: transparent;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  color: #333;
+  &:hover {
+    background-color: #fafafa;
+  }
+  &--selected {
+  }
 }

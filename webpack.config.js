@@ -45,20 +45,6 @@ module.exports = {
         test: /\.html$/i,
         loader: 'html-loader',
       },
-
-      // {
-      //   test: /\.(png|jp(e*)g|gif|ico)$/,
-      //   include: path.resolve(__dirname, "./src/core-style/images"),
-      //   use: {
-      //     loader: "file-loader",
-      //     options: {
-      //       outputPath: "./",
-      //       name: "[path][name].[ext]",
-      //       // 가져올 경로에서 해당 경로만 지우고 가져온다.
-      //       context: "src/core-style",
-      //     },
-      //   },
-      // },
     ],
   },
 
