@@ -29,7 +29,7 @@
 
 ### 개발
 
-개발 환경 → Javascript
+- 개발 환경 → Javascript
 
 1. API 받아오기
 
