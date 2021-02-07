@@ -7,6 +7,12 @@ module.exports = {
     "main": ["./src/js/index.js"],
   },
 
+  output: {
+    path: path.resolve(__dirname, "./dist"),
+    filename: "./js/[name].bundle.js",
+    publicPath: "../",
+  },
+
   module: {
     rules: [{
         test: /\.(js|jsx)$/,
@@ -40,11 +46,6 @@ module.exports = {
           "sass-loader", 
         ],
       },
-
-      {
-        test: /\.html$/i,
-        loader: 'html-loader',
-      },
     ],
   },
 
@@ -53,11 +54,5 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "css/style.min.css",
     })
-  ],
-
-  output: {
-    path: path.resolve(__dirname, "./dist"),
-    filename: "./js/[name].bundle.js",
-    publicPath: "../",
-  },
+  ]
 };

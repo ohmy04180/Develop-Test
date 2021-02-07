@@ -11,4 +11,14 @@ module.exports = merge(config, {
       "./node_modules/**"
     ],
   },
+
+  // devServer: {
+  //   proxy: {
+  //     '/www': {
+  //       target: 'https://www.icheon.go.kr/portal/rssBbsNtt.do?bbsNo=13&type=p',
+  //       changeOrigin: true,
+  //       pathRewrite: { '^/www': '' },
+  //     },
+  //   }
+  // }
 });
