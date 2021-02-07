@@ -82,12 +82,16 @@ body {
   line-height: 30px;
   padding: 0 16px;
   background-color: transparent;
+  border-radius: 5px;
   font-size: 16px;
   text-align: center;
   cursor: pointer;
-  color: #333;
+  color: #666;
   &:hover {
     background-color: #fafafa;
+  }
+  &:active {
+    background-color: #f0f0f0;
   }
   &--selected {
   }
