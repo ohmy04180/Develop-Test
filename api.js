@@ -1,47 +1,41 @@
-
 const refreshServerInfo = () => {
   const req = new XMLHttpRequest()
 
   console.log(req);
   console.log(req.status);
 
-  req.addEventListener('load', () => {
-    if (xhr.readyState == 4) {
+  req.open('GET', 'https://www.icheon.go.kr/portal/rssBbsNtt.do?bbsNo=13&type=p', true)
+  req.setRequestHeader('Content-type', 'application/json');
+  // req.withCredentials = true;
+  req.send();
 
-      if (xhr.status == 200) { //200은 잘넘어왔단 것이다.
+  // load 이벤트는 서버 응답이 완료된 경우에 발생한다.
+  req.onreadystatechange = function () {
+    try {
+      // 서버 응답 완료 && 정상 응답
+      if (req.readyState !== XMLHttpRequest.DONE) return;
 
-        process();
+      // status는 response 상태 코드를 반환 : 200 => 정상 응답
+      if (req.status === 200) {
 
-
-        console.log(this);
-        console.log(this.responseText)
-        console.log('success')
-    
-        const data = JSON.parse(this.responseText);
-    
         // const serverInfo = document.querySelector(".test");
-    
+
         // Object.keys(data).forEach(p => {
         //   const replacements = serverInfo.querySelectorAll(`[data-replace = "${p}]`);
-    
+
         //   for(let r of replacements) {
         //     r.textContent = data[p];
         //   }
         // })
+        console.log(req.responseText);
       } else {
-
-        alert("요청오류 : " + xhr.status);
-
+        console.log(`[${req.status}] : ${req.statusText}`);
       }
+    } catch (e) {
+      return Error('Caught Exception: ' + e.description);
 
     }
-  })
-
-  req.open('GET', 'https://www.icheon.go.kr/portal/rssBbsNtt.do?bbsNo=13&type=p', true)
-  req.withCredentials = true;
-  // Access-Control-Allow-Origin' 을 모두 모든 도메인으로부터의 서버 리소스 접근을 허용 하는 방법?? *
-  req.send();
-
+  };
 }
 
 const init = () => {
