@@ -6,7 +6,7 @@ const showTestData = () => {
   console.log(typeof testData, testData);
 
   for(let e = 1; e <= 10; e++){
-    console.log(e)
+    console.log(e + "~" + ((10 * e) - 1));
 
   }
 
