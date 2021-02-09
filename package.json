@@ -4,7 +4,7 @@
   "description": "- 현 시점의 HTML + Javascript 개발 실력 검증을 위해 진행 - 해당 과제를 통해 수준을 가늠해 보기 위함임",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --config webpack.dev.js",
+    "dev": "webpack --config webpack.dev.js --watch",
     "babel-version": "babel --version"
   },
   "repository": {
