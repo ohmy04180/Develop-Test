@@ -1,25 +1,26 @@
 let testData;
+const tbody = document.querySelector("#tableBody");
 
-const showPaginationNumber = () => {
-  console.log(`--- Third Function Start`);
-  const paginationButton = document.querySelector("#paginationButton1");
+const showPaginationData = () => {
+  console.log(`--- Second Function Start`);
 
-  for (let i = 0; i < 10; i++) {
-    console.log(paginationButton);
+  const paginationButtonId = []
+
+  // id 변수에 담기
+  for (let i = 1; i <= 10; i++) {
+    paginationButtonId.push(`#paginationButton${i}`);
   }
-  paginationButton.addEventListener("click", (e) => {
+
+  document.querySelector(paginationButtonId[0]).addEventListener("click", (e) => {
     e.preventDefault;
 
-    console.log(paginationButton)
+    tbody.innerHTML = '';
 
-    console.log(`${paginationButton1} is Cliked`);
     for (let e = 0; e < 10; e++) {
-      console.log(e)
       console.log(e + "~" + ((10 * e) - 1));
 
-      const tbody = document.querySelector("#tableBody");
       const tableList = `
-        <tr id=tableList${e+1}>
+        <tr id=tableList${e + 1}>
           <td id="dataUserId">
             <span class="table__text">${testData[e].userId}</span>
           </td>
@@ -37,38 +38,95 @@ const showPaginationNumber = () => {
       tbody.innerHTML += tableList;
     }
   })
+
+  document.querySelector(paginationButtonId[1]).addEventListener("click", (e) => {
+    e.preventDefault;
+
+    tbody.innerHTML = '';
+
+    for (let e = 10; e < 20; e++) {
+      console.log(e + "~" + ((10 * e) - 1));
+
+      const tableList = `
+        <tr id=tableList${e + 1}>
+          <td id="dataUserId">
+            <span class="table__text">${testData[e].userId}</span>
+          </td>
+          <td id="dataId">
+            <span class="table__text">${testData[e].id}</span>
+          </td>
+          <td id="dataTitle">
+            <span class="table__text">${testData[e].title}</span>
+          </td>
+          <td id="dataText">
+            <span class="table__text">${testData[e].body}</span>
+          </td>
+        </tr>`;
+
+      tbody.innerHTML += tableList;
+    }
+  })
+
+  document.querySelector(paginationButtonId[2]).addEventListener("click", (e) => {
+    e.preventDefault;
+
+    tbody.innerHTML = '';
+
+    for (let e = 20; e < 30; e++) {
+      console.log(e + "~" + ((10 * e) - 1));
+
+      const tableList = `
+        <tr id=tableList${e + 1}>
+          <td id="dataUserId">
+            <span class="table__text">${testData[e].userId}</span>
+          </td>
+          <td id="dataId">
+            <span class="table__text">${testData[e].id}</span>
+          </td>
+          <td id="dataTitle">
+            <span class="table__text">${testData[e].title}</span>
+          </td>
+          <td id="dataText">
+            <span class="table__text">${testData[e].body}</span>
+          </td>
+        </tr>`;
+
+      tbody.innerHTML += tableList;
+    }
+  })
+
 }
 
-const showTestData = () => {
+const showDefaultData = () => {
   console.log(`--- Second Function Start`);
   console.log(typeof testData, testData);
 
+  for (let e = 0; e < 10; e++) {
+    console.log(e + "~" + ((10 * e) - 1));
 
-  for (let i = 0; i <= testData.length; i++) {
-    const tbody = document.querySelector("#tableBody");
     const tableList = `
-    <tr id=tableList${i+1}>
-      <td id="dataUserId">
-        <span class="table__text">${testData[i].userId}</span>
-      </td>
-      <td id="dataId">
-        <span class="table__text">${testData[i].id}</span>
-      </td>
-      <td id="dataTitle">
-        <span class="table__text">${testData[i].title}</span>
-      </td>
-      <td id="dataText">
-        <span class="table__text">${testData[i].body}</span>
-      </td>
-    </tr>`;
+      <tr id=tableList${e + 1}>
+        <td id="dataUserId">
+          <span class="table__text">${testData[e].userId}</span>
+        </td>
+        <td id="dataId">
+          <span class="table__text">${testData[e].id}</span>
+        </td>
+        <td id="dataTitle">
+          <span class="table__text">${testData[e].title}</span>
+        </td>
+        <td id="dataText">
+          <span class="table__text">${testData[e].body}</span>
+        </td>
+      </tr>`;
 
     tbody.innerHTML += tableList;
-
   }
 
 };
 
 const bringJsonData = () => {
+  console.log(`--- First Function Start`);
   const xhr = new XMLHttpRequest();
 
   // load 이벤트는 서버 응답이 완료된 경우에 발생한다.
@@ -84,10 +142,11 @@ const bringJsonData = () => {
         // 데이터를 새로 담아준다.
         testData = JSON.parse(xhr.responseText);
 
-        // testData를 HTML Element로 담아주는 함수 실행
-        // showTestData();
+        // table Default List
+        showDefaultData();
 
-        showPaginationNumber()
+        // pagination quf Click Data List
+        showPaginationData()
       } else {
         console.log(`[${xhr.status}] : ${xhr.statusText}`);
       }
