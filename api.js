@@ -1,14 +1,48 @@
 let testData;
 
+const showPaginationNumber = () => {
+  console.log(`--- Third Function Start`);
+  const paginationButton = document.querySelector("#paginationButton1");
+
+  for (let i = 0; i < 10; i++) {
+    console.log(paginationButton);
+  }
+  paginationButton.addEventListener("click", (e) => {
+    e.preventDefault;
+
+    console.log(paginationButton)
+
+    console.log(`${paginationButton1} is Cliked`);
+    for (let e = 0; e < 10; e++) {
+      console.log(e)
+      console.log(e + "~" + ((10 * e) - 1));
+
+      const tbody = document.querySelector("#tableBody");
+      const tableList = `
+        <tr id=tableList${e+1}>
+          <td id="dataUserId">
+            <span class="table__text">${testData[e].userId}</span>
+          </td>
+          <td id="dataId">
+            <span class="table__text">${testData[e].id}</span>
+          </td>
+          <td id="dataTitle">
+            <span class="table__text">${testData[e].title}</span>
+          </td>
+          <td id="dataText">
+            <span class="table__text">${testData[e].body}</span>
+          </td>
+        </tr>`;
+
+      tbody.innerHTML += tableList;
+    }
+  })
+}
 
 const showTestData = () => {
   console.log(`--- Second Function Start`);
   console.log(typeof testData, testData);
 
-  for(let e = 1; e <= 10; e++){
-    console.log(e + "~" + ((10 * e) - 1));
-
-  }
 
   for (let i = 0; i <= testData.length; i++) {
     const tbody = document.querySelector("#tableBody");
@@ -29,7 +63,9 @@ const showTestData = () => {
     </tr>`;
 
     tbody.innerHTML += tableList;
+
   }
+
 };
 
 const bringJsonData = () => {
@@ -49,7 +85,9 @@ const bringJsonData = () => {
         testData = JSON.parse(xhr.responseText);
 
         // testData를 HTML Element로 담아주는 함수 실행
-        showTestData();
+        // showTestData();
+
+        showPaginationNumber()
       } else {
         console.log(`[${xhr.status}] : ${xhr.statusText}`);
       }

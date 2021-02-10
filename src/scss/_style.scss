@@ -75,7 +75,7 @@ td+td {
   padding: 0 4px;
 }
 
-.pagination__link {
+.pagination__button {
   text-decoration: none;
 }
 
@@ -83,8 +83,7 @@ td+td {
   border: none;
 }
 
-.pagination__button,
-.pagination__link {
+.pagination__button {
   display: block;
   height: 30px;
   line-height: 30px;
