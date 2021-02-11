@@ -7,7 +7,6 @@ body {
 // Theme - table
 // -------------------------
 .table {
-  width: 500px;
   margin: 0 auto;
 }
 
@@ -27,7 +26,7 @@ body {
 
 .table th,
 .table td {
-  padding: 4px 0;
+  padding: 4px;
   vertical-align: middle;
   word-break: break-all;
 }
@@ -41,9 +40,18 @@ body {
 .table td {
   font-size: 14px;
   font-weight: 400;
-  text-align: center;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
 }
 
+th+th,
+td+td {
+  border-left: 1px solid #ccc;
+}
+
+.table tr:hover td{
+  background-color: rgb(250, 250, 250);
+}
 // -------------------------
 // Theme - table
 // -------------------------
@@ -67,7 +75,7 @@ body {
   padding: 0 4px;
 }
 
-.pagination__link {
+.pagination__button {
   text-decoration: none;
 }
 
@@ -75,8 +83,7 @@ body {
   border: none;
 }
 
-.pagination__button,
-.pagination__link {
+.pagination__button {
   display: block;
   height: 30px;
   line-height: 30px;
@@ -87,12 +94,14 @@ body {
   text-align: center;
   cursor: pointer;
   color: #666;
+
   &:hover {
     background-color: #fafafa;
   }
+
   &:active {
     background-color: #f0f0f0;
   }
-  &--selected {
-  }
+
+  &--selected {}
 }
