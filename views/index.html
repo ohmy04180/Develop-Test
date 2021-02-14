@@ -1,78 +1,43 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Develop Test</title>
+    <link rel="stylesheet" href="../dist/css/style.min.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Develop Test</title>
-  <link rel="stylesheet" href="../dist/css/style.min.css" />
-</head>
-<body>
-  <div class="table">
-    <strong class="table__title">
-      경기도 이천 맛집 리스트
-    </strong>
-    <h2 id="demo"></h2>
-    <table>
-      <colgroup>
-        <col width="50">
-        <col width="50">
-        <col width="300">
-      </colgroup>
-      <thead>
-        <tr>
-          <th>사용자 ID</th>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Body</th>
-        </tr>
-      <tbody id="tableBody">
-        
-      </tbody>
-    </table>
-  </div>
-  <div class="pagination">
-    <!-- <button class="pagination__button" type="button">
+  <body>
+    <div class="table">
+      <strong class="table__title"> 경기도 이천 맛집 리스트 </strong>
+      <h2 id="demo"></h2>
+      <table id="table">
+        <colgroup>
+          <col width="50" />
+          <col width="50" />
+          <col width="300" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>사용자 ID</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Body</th>
+          </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+    <div class="pagination">
+      <!-- <button class="pagination__button" type="button">
       < </button> -->
-        <ul class="pagination__list">
-          <li class="pagination__item">
-            <button type="button" id="paginationButton1" class="pagination__button"> 1 </button>
-          </li>
-          <li class="pagination__item">
-            <button type="button" id="paginationButton2" class="pagination__button"> 2 </button>
-          </li>
-          <li class="pagination__item">
-            <button type="button" id="paginationButton3" class="pagination__button"> 3 </button>
-          </li>
-          <li class="pagination__item">
-            <button type="button" id="paginationButton4" class="pagination__button"> 4 </button>
-          </li>
-          <li class="pagination__item">
-            <button type="button" id="paginationButton5" class="pagination__button"> 5 </button>
-          </li>
-          <li class="pagination__item">
-            <button type="button" id="paginationButton6" class="pagination__button"> 6 </button>
-          </li>
-          <li class="pagination__item">
-            <button type="button" id="paginationButton7" class="pagination__button"> 7 </button>
-          </li>
-          <li class="pagination__item">
-            <button type="button" id="paginationButton8" class="pagination__button"> 8 </button>
-          </li>
-          <li class="pagination__item">
-            <button type="button" id="paginationButton9" class="pagination__button"> 9 </button>
-          </li>
-          <li class="pagination__item">
-            <button type="button" id="paginationButton10" class="pagination__button"> 10 </button>
-          </li>
-        </ul>
-        <!-- <button class="pagination__button" type="button">
+      <ul class="pagination__list" id="pagination"></ul>
+      <!-- <button class="pagination__button" type="button">
           >
         </button> -->
-  </div>
-  <script src="../dist/js/main.bundle.js"></script>
-  <script src="../api.js"></script>
-
-</body>
-
+    </div>
+    <script src="../dist/js/main.bundle.js"></script>
+    <script src="../api.js"></script>
+  </body>
 </html>
