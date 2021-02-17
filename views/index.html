@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Develop Test</title>
-    <link rel="stylesheet" href="../dist/css/style.min.css" />
-  </head>
 
-  <body>
-    <div class="table">
-      <strong class="table__title"> 경기도 이천 맛집 리스트 </strong>
-      <h2 id="demo"></h2>
-      <table id="table">
-        <colgroup>
-          <col width="50" />
-          <col width="50" />
-          <col width="300" />
-        </colgroup>
-        <thead>
-          <tr>
-            <th>사용자 ID</th>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Body</th>
-          </tr>
-        </thead>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Develop Test</title>
+  <link rel="stylesheet" href="../dist/css/style.min.css" />
+</head>
 
-        <tbody id="tableBody"></tbody>
-      </table>
-    </div>
-    <div class="pagination">
-      <!-- <button class="pagination__button" type="button">
-      < </button> -->
-      <ul class="pagination__list" id="pagination"></ul>
-      <!-- <button class="pagination__button" type="button">
-          >
-        </button> -->
-    </div>
-    <script src="../dist/js/main.bundle.js"></script>
-  </body>
+<body>
+  <div class="table">
+    <strong class="table__title"> (Fetch API) 경기도 이천 맛집 리스트 </strong>
+    <h2 id="demo"></h2>
+    <table id="table">
+      <colgroup>
+        <col width="50" />
+        <col width="50" />
+        <col width="300" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>사용자 ID</th>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Body</th>
+        </tr>
+      </thead>
+
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+  <div class="pagination">
+    <button class="pagination__button" type="button" id="prevButton">이전으로</button> 
+    <button class="pagination__button" type="button" id="nextButton">다음으로</button>
+  </div>
+  <script src="../dist/js/main.bundle.js"></script>
+</body>
+
 </html>

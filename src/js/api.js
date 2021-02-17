@@ -1,292 +1,115 @@
 let testData = []
-let paginationArr = []
 const tbody = document.querySelector('#tableBody')
-const pagination = document.querySelector('#pagination')
+const prevButton = document.querySelector('#prevButton');
+const nextButton = document.querySelector('#nextButton');
+let pageNumber = 0;
+let startNumber;
+let endNumber;
 
 const showDataList = () => {
-  console.log(`--- Fourth Function Start`)
-
-  paginationArr.forEach((element) => {
-    let paginationButton = document.querySelector(`#${element}`)
-
-    paginationButton.addEventListener('click', (event) => {
-      event.preventDefault()
-      let paginationButtonId = Number(element.slice(12))
-
-      if (paginationButtonId === 1) {
-        console.log(paginationButtonId)
-        tbody.innerHTML = ''
-        for (let e = 0; e < 10; e++) {
-          const tableList = `
-        <tr id=tableList${e}>
-          <td id="dataUserId">
-            <span class="table__text">${testData[e].userId}</span>
-          </td>
-          <td id="dataId">
-            <span class="table__text">${testData[e].id}</span>
-          </td>
-          <td id="dataTitle">
-            <span class="table__text">${testData[e].title}</span>
-          </td>
-          <td id="dataText">
-            <span class="table__text">${testData[e].body}</span>
-          </td>
-        </tr>`
-
-          tbody.innerHTML += tableList
-        }
-      } else if (paginationButtonId === 2) {
-        console.log(paginationButtonId)
-        tbody.innerHTML = ''
-        for (let e = 10; e < 20; e++) {
-          const tableList = `
-        <tr id=tableList${e}>
-          <td id="dataUserId">
-            <span class="table__text">${testData[e].userId}</span>
-          </td>
-          <td id="dataId">
-            <span class="table__text">${testData[e].id}</span>
-          </td>
-          <td id="dataTitle">
-            <span class="table__text">${testData[e].title}</span>
-          </td>
-          <td id="dataText">
-            <span class="table__text">${testData[e].body}</span>
-          </td>
-        </tr>`
-
-          tbody.innerHTML += tableList
-        }
-      } else if (paginationButtonId === 3) {
-        console.log(paginationButtonId)
-        tbody.innerHTML = ''
-        for (let e = 20; e < 30; e++) {
-          const tableList = `
-        <tr id=tableList${e}>
-          <td id="dataUserId">
-            <span class="table__text">${testData[e].userId}</span>
-          </td>
-          <td id="dataId">
-            <span class="table__text">${testData[e].id}</span>
-          </td>
-          <td id="dataTitle">
-            <span class="table__text">${testData[e].title}</span>
-          </td>
-          <td id="dataText">
-            <span class="table__text">${testData[e].body}</span>
-          </td>
-        </tr>`
-
-          tbody.innerHTML += tableList
-        }
-      } else if (paginationButtonId === 4) {
-        console.log(paginationButtonId)
-        tbody.innerHTML = ''
-        for (let e = 30; e < 40; e++) {
-          const tableList = `
-        <tr id=tableList${e}>
-          <td id="dataUserId">
-            <span class="table__text">${testData[e].userId}</span>
-          </td>
-          <td id="dataId">
-            <span class="table__text">${testData[e].id}</span>
-          </td>
-          <td id="dataTitle">
-            <span class="table__text">${testData[e].title}</span>
-          </td>
-          <td id="dataText">
-            <span class="table__text">${testData[e].body}</span>
-          </td>
-        </tr>`
-
-          tbody.innerHTML += tableList
-        }
-      } else if (paginationButtonId === 5) {
-        console.log(paginationButtonId)
-        tbody.innerHTML = ''
-        for (let e = 40; e < 50; e++) {
-          const tableList = `
-        <tr id=tableList${e}>
-          <td id="dataUserId">
-            <span class="table__text">${testData[e].userId}</span>
-          </td>
-          <td id="dataId">
-            <span class="table__text">${testData[e].id}</span>
-          </td>
-          <td id="dataTitle">
-            <span class="table__text">${testData[e].title}</span>
-          </td>
-          <td id="dataText">
-            <span class="table__text">${testData[e].body}</span>
-          </td>
-        </tr>`
-
-          tbody.innerHTML += tableList
-        }
-      } else if (paginationButtonId === 6) {
-        console.log(paginationButtonId)
-        tbody.innerHTML = ''
-        for (let e = 50; e < 60; e++) {
-          const tableList = `
-        <tr id=tableList${e}>
-          <td id="dataUserId">
-            <span class="table__text">${testData[e].userId}</span>
-          </td>
-          <td id="dataId">
-            <span class="table__text">${testData[e].id}</span>
-          </td>
-          <td id="dataTitle">
-            <span class="table__text">${testData[e].title}</span>
-          </td>
-          <td id="dataText">
-            <span class="table__text">${testData[e].body}</span>
-          </td>
-        </tr>`
-
-          tbody.innerHTML += tableList
-        }
-      } else if (paginationButtonId === 7) {
-        console.log(paginationButtonId)
-        tbody.innerHTML = ''
-        for (let e = 60; e < 70; e++) {
-          const tableList = `
-        <tr id=tableList${e}>
-          <td id="dataUserId">
-            <span class="table__text">${testData[e].userId}</span>
-          </td>
-          <td id="dataId">
-            <span class="table__text">${testData[e].id}</span>
-          </td>
-          <td id="dataTitle">
-            <span class="table__text">${testData[e].title}</span>
-          </td>
-          <td id="dataText">
-            <span class="table__text">${testData[e].body}</span>
-          </td>
-        </tr>`
-
-          tbody.innerHTML += tableList
-        }
-      } else if (paginationButtonId === 8) {
-        console.log(paginationButtonId)
-        tbody.innerHTML = ''
-        for (let e = 70; e < 80; e++) {
-          const tableList = `
-        <tr id=tableList${e}>
-          <td id="dataUserId">
-            <span class="table__text">${testData[e].userId}</span>
-          </td>
-          <td id="dataId">
-            <span class="table__text">${testData[e].id}</span>
-          </td>
-          <td id="dataTitle">
-            <span class="table__text">${testData[e].title}</span>
-          </td>
-          <td id="dataText">
-            <span class="table__text">${testData[e].body}</span>
-          </td>
-        </tr>`
-
-          tbody.innerHTML += tableList
-        }
-      } else if (paginationButtonId === 9) {
-        console.log(paginationButtonId)
-        tbody.innerHTML = ''
-        for (let e = 80; e < 90; e++) {
-          const tableList = `
-        <tr id=tableList${e}>
-          <td id="dataUserId">
-            <span class="table__text">${testData[e].userId}</span>
-          </td>
-          <td id="dataId">
-            <span class="table__text">${testData[e].id}</span>
-          </td>
-          <td id="dataTitle">
-            <span class="table__text">${testData[e].title}</span>
-          </td>
-          <td id="dataText">
-            <span class="table__text">${testData[e].body}</span>
-          </td>
-        </tr>`
-
-          tbody.innerHTML += tableList
-        }
-      } else if (paginationButtonId === 10) {
-        console.log(paginationButtonId)
-        tbody.innerHTML = ''
-        for (let e = 90; e < 100; e++) {
-          const tableList = `
-        <tr id=tableList${e}>
-          <td id="dataUserId">
-            <span class="table__text">${testData[e].userId}</span>
-          </td>
-          <td id="dataId">
-            <span class="table__text">${testData[e].id}</span>
-          </td>
-          <td id="dataTitle">
-            <span class="table__text">${testData[e].title}</span>
-          </td>
-          <td id="dataText">
-            <span class="table__text">${testData[e].body}</span>
-          </td>
-        </tr>`
-
-          tbody.innerHTML += tableList
-        }
-      }
-    })
-  })
-}
-
-const showPaginationList = () => {
   console.log(`--- Third Function Start`)
-  // 총 데이터 리스트 갯수
-  let testDataAmount = testData.length
 
-  // 필요한 페이지 네비게이션 갯수
-  let paginationAmount = Math.ceil(testData.length / 10)
+  prevButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    pageNumber--;
+    console.log(pageNumber)
 
-  if (testDataAmount > 1) {
-    for (let num = 0; num < paginationAmount; num++) {
-      paginationArr.push(`paginatonBtn${num + 1}`)
+    startNumber = 10 * (pageNumber);
+    endNumber = (10 * (pageNumber)) + 9;
 
-      const paginationList = `
-      <li class="pagination__item">
-        <button type="button" id="paginatonBtn${num + 1}" class="pagination__button"> ${num + 1} </button>
-      </li>`
+    if (pageNumber < 10 && pageNumber > 0) {
+      console.log(`startNumber is ${startNumber}`)
+      console.log(`endNumber is ${endNumber}`)
 
-      pagination.innerHTML += paginationList
+      tbody.innerHTML = '';
+      for (let num = startNumber; num <= endNumber; num++) {
+        const tableList = `
+            <tr id=tableList${num + 1}>
+              <td id="dataUserId">
+                <span class="table__text">${testData[num].userId}</span>
+              </td>
+              <td id="dataId">
+                <span class="table__text">${testData[num].id}</span>
+              </td>
+              <td id="dataTitle">
+                <span class="table__text">${testData[num].title}</span>
+              </td>
+              <td id="dataText">
+                <span class="table__text">${testData[num].body}</span>
+              </td>
+            </tr>`
+        tbody.innerHTML += tableList
+      }
+    } else {
+      console.log("error")
+      e.target.disabled = true;
+      nextButton.disabled = false
     }
-    showDataList()
-  } else {
-    console.log(`DataList가 없음`)
-  }
+  })
+
+  nextButton.addEventListener('click', (e) => {
+    e.preventDefault;
+    pageNumber++;
+    console.log(pageNumber)
+
+    startNumber = 10 * (pageNumber);
+    endNumber = (10 * (pageNumber)) + 9;
+
+    if (pageNumber < 10) {
+      console.log(`startNumber is ${startNumber}`)
+      console.log(`endNumber is ${endNumber}`)
+      tbody.innerHTML = '';
+      for (let num = startNumber; num <= endNumber; num++) {
+        const tableList = `
+            <tr id=tableList${num + 1}>
+              <td id="dataUserId">
+                <span class="table__text">${testData[num].userId}</span>
+              </td>
+              <td id="dataId">
+                <span class="table__text">${testData[num].id}</span>
+              </td>
+              <td id="dataTitle">
+                <span class="table__text">${testData[num].title}</span>
+              </td>
+              <td id="dataText">
+                <span class="table__text">${testData[num].body}</span>
+              </td>
+            </tr>`
+        tbody.innerHTML += tableList
+      }
+    } else {
+      console.log("error")
+      e.target.disabled = true;
+    }
+  })
+
+
 }
 
-const showDefaultData = () => {
+const showDefaultDataList = () => {
   console.log(`--- Second Function Start`)
 
-  for (let e = 0; e < 10; e++) {
+  for (let num = 0; num < 10; num++) {
     const tableList = `
-      <tr id=tableList${e + 1}>
+      <tr id=tableList${num + 1}>
         <td id="dataUserId">
-          <span class="table__text">${testData[e].userId}</span>
+          <span class="table__text">${testData[num].userId}</span>
         </td>
         <td id="dataId">
-          <span class="table__text">${testData[e].id}</span>
+          <span class="table__text">${testData[num].id}</span>
         </td>
         <td id="dataTitle">
-          <span class="table__text">${testData[e].title}</span>
+          <span class="table__text">${testData[num].title}</span>
         </td>
         <td id="dataText">
-          <span class="table__text">${testData[e].body}</span>
+          <span class="table__text">${testData[num].body}</span>
         </td>
       </tr>`
 
     tbody.innerHTML += tableList
   }
 
-  showPaginationList()
+  showDataList()
 }
 
 const activeFetchApi = () => {
@@ -303,7 +126,7 @@ const activeFetchApi = () => {
         testData.push(data[i])
       }
 
-      showDefaultData()
+      showDefaultDataList()
     })
     .catch((error) => console.log(`error : ${error}`))
 }
