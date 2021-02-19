@@ -3,6 +3,7 @@ let paginationArr = []
 const tbody = document.querySelector('#tableBody')
 const pagination = document.querySelector('#pagination')
 
+// 각각의 PaginationButton 클릭시, 페이지 보이도록 구현
 const showDataList = () => {
   console.log(`--- Fourth Function Start`)
 
@@ -44,6 +45,7 @@ const showDataList = () => {
   })
 }
 
+// DataList에 맞게 Pagination 보여주기
 const setPaginationButton = () => {
   console.log(`--- Third Function Start`)
   // 총 데이터 리스트 갯수
