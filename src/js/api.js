@@ -116,7 +116,7 @@ const showDefaultDataList = () => {
   showDataList();
 }
 
-async function activeFetchApi() {
+async function activeApi() {
   try {
     const response = await userInfo()
     console.log(response[0])
@@ -141,7 +141,7 @@ const userInfo = () => {
 }
 
 const init = () => {
-  activeFetchApi()
+  activeApi()
 }
 
 init()
