@@ -64,7 +64,7 @@ const showDataList = () => {
       console.log(`pageNumber is ${pageNumber}`)
       console.log(`startNumber is ${startNumber}`)
       console.log(`endNumber is ${endNumber}`)
-      
+
       prevButton.disabled = false;
       tbody.innerHTML = '';
 
@@ -90,6 +90,7 @@ const showDataList = () => {
   })
 }
 
+// 로딩했을 때 Default 데이터가 보여지도록 설정
 const showDefaultDataList = () => {
   console.log(`--- Second Function Start`)
 
@@ -118,24 +119,25 @@ const showDefaultDataList = () => {
 
 async function activeApi() {
   try {
+    // Data를 가져올 때 까지 기다리는 동안 다른 함수를 실행한다.
     const response = await userInfo()
-    console.log(response[0])
-    console.log(typeof response)
-    
-    // table Default List
+
+    // testData에 해당 data를 배열로 담아준다.
     for (let i = 0; i < response.length; i++) {
       testData.push(response[i])
     }
 
     showDefaultDataList()
+    // 예외(에러)처리
   } catch (err) {
     console.log(err)
   }
 }
 
+// Promise 형태로 데이터를 가져온다.
 const userInfo = () => {
-  const url = 'https://jsonplaceholder.typicode.com/posts'
-  return fetch(url).then((res) => {
+return fetch('https://jsonplaceholder.typicode.com/posts')
+  .then((res) => {
     return res.json()
   })
 }
