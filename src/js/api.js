@@ -27,7 +27,9 @@ const showDataList = () => {
       console.log(`endNumber is ${endNumber}`)
 
       nextButton.disabled = false;
+      
       tbody.innerHTML = '';
+
       for (let num = startNumber; num <= endNumber; num++) {
         const tableList = `
                 <tr id=tableList${num + 1}>
@@ -55,17 +57,18 @@ const showDataList = () => {
     startNumber = 10 * (pageNumber);
     endNumber = (10 * (pageNumber)) + 9;
 
-
-    if (pageNumber === 10) {
+    if (pageNumber === (testData.length / 10)) {
       pageNumber = 9;
       e.target.disabled = true;
       console.log("error")
+      
     } else {
       console.log(`pageNumber is ${pageNumber}`)
       console.log(`startNumber is ${startNumber}`)
       console.log(`endNumber is ${endNumber}`)
 
       prevButton.disabled = false;
+
       tbody.innerHTML = '';
 
       for (let num = startNumber; num <= endNumber; num++) {
