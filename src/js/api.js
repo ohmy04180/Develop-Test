@@ -26,7 +26,7 @@ const showDataList = () => {
 
       for (let e = startIndex; e <= endIndex; e++) {
         const tableList = `
-      <tr id=tableList${e}>
+      <tr id=tableList${e+1}>
         <td id="dataUserId">
           <span class="table__text">${testData[e].userId}</span>
         </td>
