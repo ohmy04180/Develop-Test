@@ -10,15 +10,13 @@
 
 <body>
   <div class="table">
-    <strong class="table__title">
-      경기도 이천 맛집 리스트
-    </strong>
+    <strong class="table__title"> (Fetch API) 경기도 이천 맛집 리스트 </strong>
     <h2 id="demo"></h2>
-    <table>
+    <table id="table">
       <colgroup>
-        <col width="50">
-        <col width="50">
-        <col width="300">
+        <col width="50" />
+        <col width="50" />
+        <col width="300" />
       </colgroup>
       <thead>
         <tr>
@@ -27,18 +25,16 @@
           <th>Title</th>
           <th>Body</th>
         </tr>
-      <tbody id="tableBody">
+      </thead>
 
-      </tbody>
+      <tbody id="tableBody"></tbody>
     </table>
   </div>
   <div class="pagination">
-    <ul class="pagination__list" id="pagination">
-      
-    </ul>
+    <button class="pagination__button" type="button" id="prevButton">이전으로</button> 
+    <button class="pagination__button" type="button" id="nextButton">다음으로</button>
   </div>
   <script src="../dist/js/main.bundle.js"></script>
-
 </body>
 
 </html>

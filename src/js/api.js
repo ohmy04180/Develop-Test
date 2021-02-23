@@ -1,74 +1,92 @@
 let testData = []
-let paginationArr = []
 const tbody = document.querySelector('#tableBody')
 const pagination = document.querySelector('#pagination')
+let pageNumber = 0;
+let startNumber;
+let endNumber;
 
-// 각각의 PaginationButton 클릭시, 페이지 보이도록 구현
 const showDataList = () => {
-  console.log(`--- Fourth Function Start`)
+  console.log(`--- Third Function Start`)
+  console.log(`pageNumber!!!! is ${pageNumber}`)
 
-  paginationArr.forEach((element) => {
-    let paginationButton = document.querySelector(`#${element}`)
+  prevButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    pageNumber--;
 
-    paginationButton.addEventListener('click', (event) => {
-      event.preventDefault()
+    startNumber = 10 * (pageNumber);
+    endNumber = (10 * (pageNumber)) + 9;
 
-      let paginationButtonId = Number(element.slice(12))
-      console.log(paginationButtonId);
+    if (pageNumber === -1) {
+      pageNumber = 0;
+      e.target.disabled = true;
+      console.log("error")
+    } else {
+      console.log(`pageNumber is ${pageNumber}`)
+      console.log(`startNumber is ${startNumber}`)
+      console.log(`endNumber is ${endNumber}`)
 
-      let listId = paginationButtonId - 1;
-      let startIndex = 10 * listId;
-      let endIndex = (10 * listId) + 9;
-
+      nextButton.disabled = false;
       tbody.innerHTML = '';
-
-      for (let e = startIndex; e <= endIndex; e++) {
+      for (let num = startNumber; num <= endNumber; num++) {
         const tableList = `
-      <tr id=tableList${e}>
-        <td id="dataUserId">
-          <span class="table__text">${testData[e].userId}</span>
-        </td>
-        <td id="dataId">
-          <span class="table__text">${testData[e].id}</span>
-        </td>
-        <td id="dataTitle">
-          <span class="table__text">${testData[e].title}</span>
-        </td>
-        <td id="dataText">
-          <span class="table__text">${testData[e].body}</span>
-        </td>
-      </tr>`
-
+                <tr id=tableList${num + 1}>
+                  <td id="dataUserId">
+                    <span class="table__text">${testData[num].userId}</span>
+                  </td>
+                  <td id="dataId">
+                    <span class="table__text">${testData[num].id}</span>
+                  </td>
+                  <td id="dataTitle">
+                    <span class="table__text">${testData[num].title}</span>
+                  </td>
+                  <td id="dataText">
+                    <span class="table__text">${testData[num].body}</span>
+                  </td>
+                </tr>`
         tbody.innerHTML += tableList
       }
-    })
-  })
-}
-
-// DataList에 맞게 Pagination 보여주기
-const setPaginationButton = () => {
-  console.log(`--- Third Function Start`)
-  // 총 데이터 리스트 갯수
-  let testDataAmount = testData.length
-
-  // 필요한 페이지 네비게이션 갯수
-  let paginationAmount = Math.floor((testData.length / 10) - 1)
-
-  if (testDataAmount > 1) {
-    for (let num = 0; num <= paginationAmount; num++) {
-      paginationArr.push(`paginatonBtn${num+1}`)
-
-      const paginationList = `
-      <li class="pagination__item">
-        <button type="button" id="${paginationArr[num]}" class="pagination__button"> ${num+1} </button>
-      </li>`
-
-      pagination.innerHTML += paginationList
     }
-    showDataList()
-  } else {
-    console.log(`DataList가 없음`)
-  }
+  })
+
+  nextButton.addEventListener('click', (e) => {
+    e.preventDefault;
+    pageNumber++;
+    startNumber = 10 * (pageNumber);
+    endNumber = (10 * (pageNumber)) + 9;
+
+
+    if (pageNumber === (testData.length / 10)) {
+      pageNumber = 9;
+      e.target.disabled = true;
+      console.log("error")
+    } else {
+      console.log(`pageNumber is ${pageNumber}`)
+      console.log(`startNumber is ${startNumber}`)
+      console.log(`endNumber is ${endNumber}`)
+
+      prevButton.disabled = false;
+      tbody.innerHTML = '';
+
+      for (let num = startNumber; num <= endNumber; num++) {
+        const tableList = `
+            <tr id=tableList${num + 1}>
+              <td id="dataUserId">
+                <span class="table__text">${testData[num].userId}</span>
+              </td>
+              <td id="dataId">
+                <span class="table__text">${testData[num].id}</span>
+              </td>
+              <td id="dataTitle">
+                <span class="table__text">${testData[num].title}</span>
+              </td>
+              <td id="dataText">
+                <span class="table__text">${testData[num].body}</span>
+              </td>
+            </tr>`
+        tbody.innerHTML += tableList
+      }
+    }
+  })
 }
 
 // 첫 페이지 로딩시 1 ~ 10 리스트 보여주도록 설정
@@ -95,7 +113,7 @@ const showDefaultDataList = () => {
     tbody.innerHTML += tableList
   }
 
-  setPaginationButton()
+  showDataList()
 }
 
 const bringJsonData = () => {
