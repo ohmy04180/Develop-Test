@@ -14,11 +14,10 @@ const showDataList = () => {
     paginationButton.addEventListener('click', (event) => {
       event.preventDefault()
 
-      // 
+      // paginatonBtn의 넘버 값을 새로운 변수로 담아준다.
       let paginationButtonId = Number(element.slice(12))
       console.log(paginationButtonId);
 
-      // id paginatonBtn - 1 
       let listId = paginationButtonId - 1;
       let startIndex = 10 * listId;
       let endIndex = (10 * listId) + 9;
@@ -54,16 +53,17 @@ const setPaginationButton = () => {
   // 총 데이터 리스트 갯수
   let testDataAmount = testData.length
 
-  // 필요한 페이지 네비게이션 갯수
-  let paginationAmount = Math.floor((testData.length / 10) - 1)
+  // 필요한 페이지 네비게이션 버튼 갯수
+  // 예) 반올림(100 / 10) = 10 개 까지 버튼이 필요함
+  let paginationAmount = Math.floor((testDataAmount / 10))
 
   if (testDataAmount > 1) {
-    for (let num = 0; num <= paginationAmount; num++) {
-      paginationArr.push(`paginatonBtn${num+1}`)
+    for (let num = 1; num <= paginationAmount; num++) {
+      paginationArr.push(`paginatonBtn${num}`)
 
       const paginationList = `
       <li class="pagination__item">
-        <button type="button" id="${paginationArr[num]}" class="pagination__button"> ${num+1} </button>
+        <button type="button" id="${paginationArr[num-1]}" class="pagination__button"> ${num} </button>
       </li>`
 
       pagination.innerHTML += paginationList
