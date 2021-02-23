@@ -56,7 +56,7 @@ const showDataList = () => {
     endNumber = (10 * (pageNumber)) + 9;
 
 
-    if (pageNumber === 10) {
+    if (pageNumber === (testData.length / 10)) {
       pageNumber = 9;
       e.target.disabled = true;
       console.log("error")
@@ -122,7 +122,6 @@ const activeFetchApi = () => {
   fetch('https://jsonplaceholder.typicode.com/posts')
     .then((response) => response.json())
     .then((data) => {
-      console.log(`type of data -> ${typeof data}`)
       console.log(`data.length -> ${data.length}`)
 
       // table Default List
@@ -132,8 +131,10 @@ const activeFetchApi = () => {
 
       showDefaultDataList()
     })
+    // 예외(에러) 처리
     .catch((error) => console.log(`error : ${error}`))
 }
+
 const init = () => {
   activeFetchApi()
 }
